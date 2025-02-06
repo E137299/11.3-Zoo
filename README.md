@@ -23,7 +23,7 @@ The solution is abstract classes. Of course every animal can eat, but the implem
 
 Furthermore, since the concrete child class actually inherits the method from its abstract parent class, the child class MUST implement it (otherwise our code will not compile). Therefore, at runtime our child class is **guranteed** to have behavior associated with the inherited method, unlike the parent class, which by definition has no behavior associated with the abstract method.
 
-Any class that has at least one abstract method, must itself be abstract. ***It isn't possible to directly instanciate an abstract class*** because, going back to the example above, it would be unclear what to do if we were to call the abstract method inside the class.
+Any class that has at least one abstract method, must itself be abstract. ***It isn't possible to directly instantiate an abstract class*** because, going back to the example above, it would be unclear what to do if we were to call the abstract method inside the class.
 
 Legal:
 ```java
@@ -34,7 +34,7 @@ cat.eat(); // Cat inherits eat() from Animal
 Also legal:
 ```java
 Animal cat = new Cat();
-cat.eat(); // the underlying Animal object was instanciated using new Cat() and therefore has a valid eat() method
+cat.eat(); // the underlying Animal object was instantiated using new Cat() and therefore has a valid eat() method
 ```
 
 Illegal:
@@ -60,7 +60,7 @@ public abstract class Animal {
     public abstract void move();
 }
 ```
-## Required Class Heiarchy
+## Required Class Hierarchy
 
 Abstract methods are identified in *italics*! 
 
@@ -149,7 +149,7 @@ Each concrete class must implement the abstract methods from *all* parent classe
         - Dogs have a 75% chance of moving in their preferred direction (otherwise random) every 15 ticks
     - When a dog dies, it has a 50% chance to spawn one new dog and a 25% chance to spawn a second new dog nearby
 
-- ### `Rat` extends `Animal` AND `Food`
+- ### `Rat` extends `Animal` OR `Food`
     - A rat has 1 life and desparately tries to keep it
         - After 500 ticks, a rat has a 1.5% chance of dying per tick, 20% if the rat is sick
         - If a rat is at all sick, it has at minimum a 1% chance of dying per tick
@@ -178,7 +178,7 @@ Each concrete class must implement the abstract methods from *all* parent classe
         - Eating expired ham increases hunger by 5 nutrition
 
 ##  Tips
-- Start by creating the abstract class heiarchy. Then focus on implementing one concrete class at a time.
+- Start by creating the abstract class hierarchy. Then focus on implementing one concrete class at a time.
 - Try to think about how you would make a similar program *without* using abstract classes. How are abstract classes helping us here?
 - Why is it useful to have **both** the `eat(Food f)` AND the `beEaten(Animal a)` methods?
 
